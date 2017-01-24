@@ -104,7 +104,6 @@ $(document).ready(function () {
       <li><a href="#question-3">Question 3</a></li>
       <li><a href="#question-4">Question 4</a></li>
       <li><a href="#question-5">Question 5</a></li>
-      <li><a href="#question-6">Question 6</a></li>
       </ul>
     </div>
 </div>
@@ -127,7 +126,7 @@ pheno &lt;-<span class="st"> </span><span class="kw">scale</span>(pheno)
 <span class="kw">dim</span>(cattle$geno)
 <span class="kw">set.seed</span>(<span class="dv">100</span>)
 cattleC &lt;-<span class="st"> </span><span class="kw">codeGeno</span>(cattle, <span class="dt">impute =</span> <span class="ot">TRUE</span>, <span class="dt">impute.type =</span> <span class="st">&quot;random&quot;</span>)</code></pre></div>
-<p>Select SNP markers only on chromosome 1. Answer the six questions below by using the following two R objects: <code>pheno</code> which contains the phenotype and <code>W</code> which is the genotype matrix.</p>
+<p>Select SNP markers only on chromosome 1. Answer the five questions below by using the following two R objects: <code>pheno</code> which contains the phenotype and <code>W</code> which is the genotype matrix.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">W &lt;-<span class="st"> </span>cattleC$geno[, <span class="kw">which</span>(cattleC$map ==<span class="st"> </span><span class="dv">1</span>)]
 <span class="kw">dim</span>(W)</code></pre></div>
 </div>
@@ -151,10 +150,6 @@ cattleC &lt;-<span class="st"> </span><span class="kw">codeGeno</span>(cattle, <
 <div id="question-5" class="section level2">
 <h2>Question 5</h2>
 <p>Verify that no matter how we code markers, centered marker codes, <span class="math inline">\(W - E(W)\)</span> and <span class="math inline">\(X - E(X)\)</span>, are the same.</p>
-</div>
-<div id="question-6" class="section level2">
-<h2>Question 6</h2>
-<p>Fit a single marker regression using ordinary least squares (OLS) and estimate marker effects. Create a scatter plot of SNP IDs vs. effect size of markers. Use the genotype matrix <code>W</code>.</p>
 </div>
 </div>
 
