@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Gota Morota" />
+
+<meta name="date" content="2017-01-31" />
+
+<title>ASCI 896 Statistical Genomics</title>
+
+<script src="hw02_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="hw02_files/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="hw02_files/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="hw02_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="hw02_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+<script src="hw02_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+<link href="hw02_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+<script src="hw02_files/readthedown-0.1/readthedown.js"></script>
+<script src="hw02_files/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+</head>
+
+<body>
+
+
+<div id="content" data-toggle="wy-nav-shift">
+
+<!-- tabsets -->
+<script src="/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+<nav id="nav-top" role="navigation" aria-label="top navigation">
+    <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+</nav>
+
+
+<div id="header">
+<h1 class="title">ASCI 896 Statistical Genomics</h1>
+<h1 class="subtitle">Homework assignment 2</h1>
+</div>
+
+
+<div id="table-of-contents">
+    <h2><a href="#content">ASCI 896 Statistical Genomics</a></h2>
+    <div id="text-table-of-contents">
+      <ul>
+      <li><a href="#due-date">Due date</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#question-1">Question 1</a></li>
+      <li><a href="#question-2">Question 2</a></li>
+      <li><a href="#question-3">Question 3</a></li>
+      <li><a href="#question-3-1">Question 3</a></li>
+      <li><a href="#question-6">Question 6</a></li>
+      <li><a href="#visualization-of-ld-in-r2">Visualization of LD in r^2</a></li>
+      </ul>
+    </div>
+</div>
+
+<div id="main">
+<div id="due-date" class="section level2">
+<h2>Due date</h2>
+<p>Tuesday, February 14, 5pm</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>We will continue analyzing the <code>cattle</code> data included in the synbreedData package. Learn more about the <a href="http://www.synbreed.tum.de/">Synbreed project</a> and <a href="http://synbreed.r-forge.r-project.org/">synbreed R packages</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(synbreed)
+<span class="kw">library</span>(synbreedData)
+<span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;synbreedData&quot;</span>)
+<span class="kw">data</span>(cattle)
+<span class="st">`</span><span class="dt">?</span><span class="st">`</span>(cattle)
+pheno &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(cattle$pheno[, <span class="dv">1</span>, <span class="dv">1</span>])
+pheno &lt;-<span class="st"> </span><span class="kw">scale</span>(pheno)
+<span class="kw">dim</span>(cattle$geno)
+<span class="kw">set.seed</span>(<span class="dv">100</span>)
+cattleC &lt;-<span class="st"> </span><span class="kw">codeGeno</span>(cattle, <span class="dt">impute =</span> <span class="ot">TRUE</span>, <span class="dt">impute.type =</span> <span class="st">&quot;random&quot;</span>)</code></pre></div>
+<p>Select SNP markers only on chromosome 1. Answer the five questions below by using the following two R objects: <code>pheno</code> which contains the phenotype and <code>W</code> which is the genotype matrix.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">W &lt;-<span class="st"> </span>cattleC$geno[, <span class="kw">which</span>(cattleC$map ==<span class="st"> </span><span class="dv">1</span>)]
+<span class="kw">dim</span>(W)</code></pre></div>
+</div>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<p>Create a new variable <code>W2</code> by subsetting the first 10 markers. The dimension of <code>W2</code> is equal to <span class="math inline">\(500 \times 10\)</span>. Verify that the covariance between allelic counts is <span class="math inline">\(Cov(W[,i], W[,j]) \approx 2D\)</span>, where is <span class="math inline">\(D\)</span> is the estimate of linkage disequilibrium. Use the <code>W2</code> object and the <code>LD</code> function from the <a href="https://cran.r-project.org/web/packages/genetics/">genetics</a> package to obtain <span class="math inline">\(D\)</span>.</p>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<p>Fit a single marker regression using ordinary least squares (OLS) and estimate SNP marker effects. Create a scatter plot of SNP IDs vs. effect size of markers. Use the object <code>W</code> and <code>pheno</code>. Save the vector of marker effects into <code>a</code>.</p>
+</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
+<p>Compute the allele freqeuncies of reference allele for each SNP marker. Report the estimate of multi-locus additive genetic variance under linkage equilibrium (LE) assumption.</p>
+</div>
+<div id="question-3-1" class="section level2">
+<h2>Question 3</h2>
+<p>Compute multi-locus additive genetic variance that accounts for linkage disequilibrium (LD). Apply the expression based on the correlation between genotypes by using the <code>cor()</code> function. Report the estimate of additive genetic variance.</p>
+</div>
+<div id="question-6" class="section level2">
+<h2>Question 6</h2>
+<p>What is the net contribution of the first locus to the total additive genetic variance?</p>
+</div>
+<div id="visualization-of-ld-in-r2" class="section level2">
+<h2>Visualization of LD in r^2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">?</span><span class="st">`</span>(pairwiseLD)
+cattleLD &lt;-<span class="st"> </span><span class="kw">pairwiseLD</span>(cattleC, <span class="dt">chr =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&quot;data.frame&quot;</span>)
+<span class="kw">LDDist</span>(cattleLD, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">colD =</span> <span class="kw">hsv</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">v =</span> <span class="dv">0</span>))</code></pre></div>
+</div>
+</div>
+
+
+</div>
+
+<div id="postamble" data-toggle="wy-nav-shift" class="status">
+<p class="author"><span class="glyphicon glyphicon-user"></span> Gota Morota</p>
+<p class="date"><span class="glyphicon glyphicon-calendar"></span> January 31, 2017</p>
+</div>
+
+
+<script>
+$(document).ready(function () {
+ 	  });
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
