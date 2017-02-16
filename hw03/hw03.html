@@ -105,21 +105,21 @@ $(document).ready(function () {
       <li><a href="#question-1">Question 1</a></li>
       <li><a href="#question-2">Question 2</a></li>
       <li><a href="#question-3">Question 3</a></li>
-      <li><a href="#question-3-1">Question 3</a></li>
       <li><a href="#question-4">Question 4</a></li>
       <li><a href="#question-5">Question 5</a></li>
       <li><a href="#question-6">Question 6</a></li>
       <li><a href="#question-7">Question 7</a></li>
-      </ul></li>
-      <li><a href="#wheat-data">Wheat data</a><ul>
       <li><a href="#question-8">Question 8</a></li>
       </ul></li>
-      <li><a href="#mouse-data">Mouse data</a><ul>
+      <li><a href="#wheat-data">Wheat data</a><ul>
       <li><a href="#question-9">Question 9</a></li>
       </ul></li>
-      <li><a href="#maize-data">Maize data</a><ul>
+      <li><a href="#mouse-data">Mouse data</a><ul>
       <li><a href="#question-10">Question 10</a></li>
+      </ul></li>
+      <li><a href="#maize-data">Maize data</a><ul>
       <li><a href="#question-11">Question 11</a></li>
+      <li><a href="#question-12">Question 12</a></li>
       </ul></li>
       </ul>
     </div>
@@ -163,27 +163,27 @@ bayxshaG &lt;-<span class="st"> </span>bayxshaG[<span class="op">-</span><span c
 </div>
 <div id="question-3" class="section level2">
 <h2>Question 3</h2>
-<p>Replace missing marker genotypes with mean values. Then store marker genotypes in a matrix variable <code>W1</code>. Show that the variable <code>W1</code> does not include any <code>NA</code>.</p>
-</div>
-<div id="question-3-1" class="section level2">
-<h2>Question 3</h2>
-<p>Apply a singular value decomposition (SVD) to the genotype matrix <code>W1</code>, i.e., <span class="math inline">\(\mathbf{W}_1 = \mathbf{UDV&#39;}\)</span>. Show that 1) <span class="math inline">\(\mathbf{U&#39;U}= \mathbf{I}\)</span>, 2) <span class="math inline">\(\mathbf{V&#39;V} = \mathbf{I}\)</span>, 3) <span class="math inline">\(\mathbf{VV}&#39;= \mathbf{I}\)</span>, 4) <span class="math inline">\(\mathbf{V^{-1}} = \mathbf{V&#39;}\)</span>, and 5) <span class="math inline">\(\mathbf{V&#39;}^{-1} = \mathbf{V}\)</span>. Use the function <code>svd()</code>.</p>
+<p>Replace missing marker genotypes with mean values in a column-wise fashion (i.e., compute the mean of each column and replace NAs in that column). Then store marker genotypes in a matrix variable <code>W1</code>. Show that the variable <code>W1</code> does not include any <code>NA</code>.</p>
 </div>
 <div id="question-4" class="section level2">
 <h2>Question 4</h2>
-<p>Fit a standard OLS and a principal component-based OLS. Show that the regression of phenotypes on marker covariates is equivalent to the regression of phenotypes on principal components (eigenvectors) computed from marker genotypes. Hint: One way to answer this question is to show that predicted genetic values are equal.</p>
+<p>Apply a singular value decomposition (SVD) to the genotype matrix <code>W1</code> (i.e., <span class="math inline">\(\mathbf{W}_1 = \mathbf{UDV&#39;}\)</span>). Show that 1) <span class="math inline">\(\mathbf{U&#39;U}= \mathbf{I}\)</span>, 2) <span class="math inline">\(\mathbf{V&#39;V} = \mathbf{I}\)</span>, 3) <span class="math inline">\(\mathbf{VV}&#39;= \mathbf{I}\)</span>, 4) <span class="math inline">\(\mathbf{V^{-1}} = \mathbf{V&#39;}\)</span>, and 5) <span class="math inline">\(\mathbf{V&#39;}^{-1} = \mathbf{V}\)</span>. Use the function <code>svd()</code>.</p>
 </div>
 <div id="question-5" class="section level2">
 <h2>Question 5</h2>
-<p>In general, the ridge regression has a higher predictive ability than OLS because the vector of ridge estimators yields a smaller variance than the vector of OLS estimators. Fit a standard ridge regression. Use <span class="math inline">\(\lambda = 5\)</span>. Show that the variance of marker effect estimates is smaller in the ridge regression than that of OLS.</p>
+<p>Fit a standard OLS and a principal component-based OLS. Show that the regression of phenotypes on marker covariates is equivalent to the regression of phenotypes on principal components (eigenvectors) computed from marker genotypes. Hint: One way to answer this question is to show that their predicted genetic values are equal.</p>
 </div>
 <div id="question-6" class="section level2">
 <h2>Question 6</h2>
-<p>Fit a standard ridge regression and a SVD-based ridge regression. Use <span class="math inline">\(\lambda = 5\)</span>. Show that predicted genetic values are equal.</p>
+<p>In general, the ridge regression has a higher predictive ability than OLS because the vector of ridge estimators yields a smaller variance than that of the vector of OLS estimators. Fit a standard ridge regression. Use <span class="math inline">\(\lambda = 5\)</span>. Show that the variance of marker effect estimates is smaller in the ridge regression than that of OLS.</p>
 </div>
 <div id="question-7" class="section level2">
 <h2>Question 7</h2>
-<p>Recall that the effect of ridge is to replace <span class="math inline">\(D^{-1}\)</span> in the OLS expression with <span class="math inline">\((D^2 + \lambda I)^{-1}D\)</span>. Show that ridge estimates are shrunk toward zero because these amounts are indeed smaller in the ridge regression. Use <span class="math inline">\(\lambda = 5\)</span>.</p>
+<p>Fit a standard ridge regression and a SVD-based ridge regression. Use <span class="math inline">\(\lambda = 5\)</span>. Show that their predicted genetic values are equal.</p>
+</div>
+<div id="question-8" class="section level2">
+<h2>Question 8</h2>
+<p>Recall that the effect of ridge is to replace <span class="math inline">\(D^{-1}\)</span> in the OLS expression with <span class="math inline">\((D^2 + \lambda I)^{-1}D\)</span>. Show that ridge estimates are shrunk toward zero because these amounts are indeed smaller in the ridge regression than those in OLS. Use <span class="math inline">\(\lambda = 5\)</span>.</p>
 </div>
 </div>
 <div id="wheat-data" class="section level1">
@@ -193,8 +193,8 @@ bayxshaG &lt;-<span class="st"> </span>bayxshaG[<span class="op">-</span><span c
 <span class="kw">load</span>(<span class="st">&quot;data_G3/YLD/YLD_1.RData&quot;</span>)
 W2 &lt;-<span class="st"> </span>Markers
 <span class="kw">dim</span>(W2)</code></pre></div>
-<div id="question-8" class="section level2">
-<h2>Question 8</h2>
+<div id="question-9" class="section level2">
+<h2>Question 9</h2>
 <p>Recall that ridge estimates can be expressed as <span class="math inline">\(\hat{\beta}^{ridge}_j = \frac{\sum^n_{i=1} x^2_{ij} }{\sum^n_{i=1} x^2_{ij} + \lambda} \times \hat{\beta}^{ols}_{j}\)</span>. Create a centered genotype matrix <code>W2c</code>. Calculate the minor allele frequencies (MAF) and the amounts of shrinkage for all markers. Plot MAF on the X axis and the amounts of shrinkage on the Y axis. Interpret the figure you obtained. Use <span class="math inline">\(\lambda = 100\)</span>.</p>
 </div>
 </div>
@@ -206,25 +206,25 @@ W2 &lt;-<span class="st"> </span>Markers
 <span class="st">`</span><span class="dt">?</span><span class="st">`</span>(mice)
 W3 &lt;-<span class="st"> </span>mice.X
 <span class="kw">dim</span>(W3)</code></pre></div>
-<div id="question-9" class="section level2">
-<h2>Question 9</h2>
-<p>Create a centered genotype matrix <code>W3c</code>. Calculate MAF and the amounts of shrinkage for all markers. Plot MAF on the X axis and the amounts of shrinkage on the Y axis. Interpret the figure you obtained. Does the pattern you observe agree with the wheat dataset from Question 8? If not, explain why. Use <span class="math inline">\(\lambda = 100\)</span>.</p>
+<div id="question-10" class="section level2">
+<h2>Question 10</h2>
+<p>Create a centered genotype matrix <code>W3c</code>. Calculate MAF and the amounts of shrinkage for all markers. Plot MAF on the X axis and the amounts of shrinkage on the Y axis. Interpret the figure you obtained. Does the pattern you observe here agree with the wheat dataset from Question 9? If not, explain why. Use <span class="math inline">\(\lambda = 100\)</span>.</p>
 </div>
 </div>
 <div id="maize-data" class="section level1">
 <h1>Maize data</h1>
-<p>Download the maize data <em>File S1</em> from Crossa et al., (2010) availalbe at <a href="http://dx.doi.org/10.1534/genetics.110.118521">10.1534/genetics.110.118521</a>. The <code>dataCorn_SS.RData</code> cotains 264 corn yield phenotypes evaluated under severe drought stress conditions. The variable <code>X</code> includes 1,135 SNP markers.</p>
+<p>Download the maize data <em>File S1</em> from Crossa et al., (2010) available at <a href="http://dx.doi.org/10.1534/genetics.110.118521">10.1534/genetics.110.118521</a>. The <code>dataCorn_SS.RData</code> contains 264 corn yield phenotypes evaluated under severe drought stress conditions. The variable <code>X</code> includes 1,135 SNP markers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
 <span class="kw">load</span>(<span class="st">&quot;analysis_wheat_corn/corn_yield/data/dataCorn_SS.RData&quot;</span>)
 W4 &lt;-<span class="st"> </span>X
 <span class="kw">dim</span>(W4)</code></pre></div>
-<div id="question-10" class="section level2">
-<h2>Question 10</h2>
-<p>Create a centered genotype matrix <code>W4c</code>. Calculate MAF and the amounts of shrinkage for all markers. Plot MAF on the X axis and the amounts of shrinkage on the Y axis. Interpret the figure you obtained. Does the pattern you observe agree with the wheat dataset from Question 8? If not, explain why. Use <span class="math inline">\(\lambda = 100\)</span>.</p>
-</div>
 <div id="question-11" class="section level2">
 <h2>Question 11</h2>
-<p>Continue analyzing the maize dataset. The vector of phenotypes is included in the <code>y</code> variable. Recall that the dimension of predictors is 264 by 1,135. Show that we cannot fit OLS using the <code>solve()</code> function when <span class="math inline">\(n &lt; m\)</span> but the ridge regression can circumvent this problem. Create a scatter plot of observed <code>y</code> vs. predicted <code>y</code>. Use the variables <code>y</code>, <code>W4</code>, and set <span class="math inline">\(\lambda = 100\)</span>.</p>
+<p>Create a centered genotype matrix <code>W4c</code>. Calculate MAF and the amounts of shrinkage for all markers. Plot MAF on the X axis and the amounts of shrinkage on the Y axis. Interpret the figure you obtained. Does the pattern you observe agree with the wheat dataset from Question 9? If not, explain why. Use <span class="math inline">\(\lambda = 100\)</span>.</p>
+</div>
+<div id="question-12" class="section level2">
+<h2>Question 12</h2>
+<p>Continue analyzing the maize dataset. The vector of phenotypes is included in the <code>y</code> variable. Recall that the dimension of predictors is 264 by 1,135. Show that we cannot fit OLS using the <code>solve()</code> function when <span class="math inline">\(n &lt; m\)</span> but the ridge regression can circumvent this problem. Create a scatter plot of observed <code>y</code> vs. predicted <code>y</code>. Use the variables <code>y</code> and <code>W4</code>. Set <span class="math inline">\(\lambda = 100\)</span>.</p>
 </div>
 </div>
 </div>
