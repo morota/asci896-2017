@@ -100,7 +100,7 @@ $(document).ready(function () {
     <h2><a href="#content">ASCI 896 Statistical Genomics</a></h2>
     <div id="text-table-of-contents">
       <ul>
-      <li><a href="#mouse-data">Mouse data</a></li>
+      <li><a href="#mice-data">Mice data</a></li>
       <li><a href="#question-1">Question 1</a></li>
       <li><a href="#question-2">Question 2</a></li>
       <li><a href="#question-3">Question 3</a></li>
@@ -116,8 +116,8 @@ $(document).ready(function () {
 <h3>Due date</h3>
 <p>Thursday, March 16, 5pm</p>
 </div>
-<div id="mouse-data" class="section level2">
-<h2>Mouse data</h2>
+<div id="mice-data" class="section level2">
+<h2>Mice data</h2>
 <p>Load mouse SNP data available in the <a href="https://cran.r-project.org/web/packages/BGLR/index.html">BGLR</a> R package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(BGLR)
 <span class="kw">data</span>(mice)
@@ -147,7 +147,7 @@ $(document).ready(function () {
 </div>
 <div id="question-6" class="section level2">
 <h2>Question 6</h2>
-<p>Perform a single marker OLS-based GWA analysis by fitting <span class="math inline">\(y = \mathbf{X}\beta + \mathbf{W}_{ac} a + \mathbf{W}_d d + e\)</span>, where <span class="math inline">\(y\)</span> is the BMI phenotype, <span class="math inline">\(\mathbf{X}\)</span> includes systematic effects of intercept, sex, litter size, and cage density, <span class="math inline">\(\mathbf{W}_{ac}\)</span> is the centered additive marker genotype matrix, <span class="math inline">\(\mathbf{W}_{d}\)</span> is the dominant marker genotype matrix defined in Vitezica et al. (2013), <span class="math inline">\(a\)</span> is the additive marker effect, and <span class="math inline">\(d\)</span> is the dominant marker effect. Report SNP IDs that have the smallest <span class="math inline">\(p\)</span>-values for the additive and dominance marker effects. If additive and domiant marker effects are not simultaneously estimable, set <span class="math inline">\(p\)</span>-values equal to <code>NA</code>. Ignore multiple testing corrections for simplicity. Use the <code>lm()</code> function.</p>
+<p>Perform a single marker OLS-based GWA analysis by fitting <span class="math inline">\(y = \mathbf{X}\beta + \mathbf{W}_{ac} a + \mathbf{W}_d d + e\)</span>, where <span class="math inline">\(y\)</span> is the BMI phenotype, <span class="math inline">\(\mathbf{X}\)</span> includes systematic effects of intercept, sex, litter size, and cage density, <span class="math inline">\(\mathbf{W}_{ac}\)</span> is the centered additive marker genotype matrix, <span class="math inline">\(\mathbf{W}_{d}\)</span> is the dominant marker genotype matrix defined in Vitezica et al. (2013), <span class="math inline">\(a\)</span> is the additive marker effect, and <span class="math inline">\(d\)</span> is the dominant marker effect. Report 1) SNP ID that has the smallest p-value for the additive marker effect and 2) SNP ID that has the smallest p-value for the dominance marker effect. If additive and domiant marker effects are not simultaneously estimable, set <span class="math inline">\(p\)</span>-values equal to <code>NA</code>. Ignore multiple testing corrections for simplicity. Use the <code>lm()</code> function.</p>
 </div>
 </div>
 
