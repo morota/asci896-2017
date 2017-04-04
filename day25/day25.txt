@@ -39,6 +39,16 @@
   publisher={Nature Research}
 }
 
+@article{lehermeier2013sensitivity,
+  title={Sensitivity to prior specification in Bayesian genome-based prediction models},
+  author={Lehermeier, Christina and Wimmer, Valentin and Albrecht, Theresa and Auinger, Hans-J{\"u}rgen and Gianola, Daniel and Schmid, Volker J and Sch{\"o}n, Chris-Carolin},
+  journal={Statistical applications in genetics and molecular biology},
+  volume={12},
+  number={3},
+  pages={375--391},
+  year={2013}
+}
+
 @article{goddard2009genomic,
   title={Genomic selection: prediction of accuracy and maximisation of long term response},
   author={Goddard, Mike},
@@ -114,6 +124,17 @@
   pages={463--480},
   year={2014},
   publisher={Springer}
+}
+
+@article{gianola2016cross,
+  title={Cross-validation without doing cross-validation in genome-enabled prediction},
+  author={Gianola, Daniel and Sch{\"o}n, Chris-Carolin},
+  journal={G3: Genes| Genomes| Genetics},
+  volume={6},
+  number={10},
+  pages={3107--3128},
+  year={2016},
+  publisher={Genetics Society of America}
 }
 
 @article{maki2014influence,
