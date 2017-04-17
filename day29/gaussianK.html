@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#define-g-matrix-and-gaussian-kernel-functions"><span class="toc-section-number">1.4</span> Define G matrix and Gaussian kernel functions</a></li>
 <li><a href="#comparison-1"><span class="toc-section-number">1.5</span> Comparison 1</a></li>
 <li><a href="#comparison-2"><span class="toc-section-number">1.6</span> Comparison 2</a></li>
+<li><a href="#multi-kernel-rkhs-regression"><span class="toc-section-number">1.7</span> Multi-kernel RKHS regression</a></li>
 </ul></li>
 </ul>
 </div>
@@ -146,6 +147,19 @@ title(substitute(theta == 0.1))</code></pre>
 <pre class="r"><code>dev.off()</code></pre>
 <pre><code>## null device 
 ##           1</code></pre>
+</div>
+<div id="multi-kernel-rkhs-regression" class="section level2">
+<h2><span class="header-section-number">1.7</span> Multi-kernel RKHS regression</h2>
+<pre class="r"><code>library(BGLR)
+set.seed(0728)
+tst &lt;- sample(1:nrow(X), size=76)
+y.na &lt;- y
+y.na[tst] &lt;- NA
+
+ETA &lt;- list(K1=list(K = GK1.0, model=&quot;RKHS&quot;), K2=list(K = GK0.1, model=&quot;RKHS&quot;))
+fit.RKHS &lt;- BGLR(y = y.na, ETA = ETA, nIter = 5000, burnIn = 2000, verbose = FALSE)
+cor(y[tst], fit.RKHS$yHat[tst])</code></pre>
+<pre><code>## [1] 0.4183049</code></pre>
 </div>
 </div>
 
