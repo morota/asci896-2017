@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Gota Morota" />
+
+<meta name="date" content="2017-04-18" />
+
+<title>ASCI 896 Statistical Genomics</title>
+
+<script src="hw07_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="hw07_files/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="hw07_files/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="hw07_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="hw07_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+<script src="hw07_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+<link href="hw07_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+<script src="hw07_files/readthedown-0.1/readthedown.js"></script>
+<script src="hw07_files/navigation-1.1/tabsets.js"></script>
+<script src="hw07_files/navigation-1.1/codefolding.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+<div id="content" data-toggle="wy-nav-shift">
+
+<!-- tabsets -->
+<script src="/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<script src="/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<nav id="nav-top" role="navigation" aria-label="top navigation">
+    <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+</nav>
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text-muted">Code</span> <span class="text-muted caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All</a></li>
+</ul>
+</div>
+
+<div id="header">
+<h1 class="title">ASCI 896 Statistical Genomics</h1>
+<h1 class="subtitle">Homework assignment 7</h1>
+</div>
+
+
+<div id="table-of-contents">
+    <h2><a href="#content">ASCI 896 Statistical Genomics</a></h2>
+    <div id="text-table-of-contents">
+      <ul>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#question-1">Question 1</a></li>
+      <li><a href="#question-2">Question 2</a></li>
+      <li><a href="#question-3">Question 3</a></li>
+      </ul>
+    </div>
+</div>
+
+<div id="main">
+<div id="due-date" class="section level3">
+<h3>Due date</h3>
+<p>Tuesday, April 27, 5pm</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>Continue from <a href="http://morotalab.org/asci896-2017/hw06/hw06.html">HW6</a> and use the same data.</p>
+</div>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<p>Jiang and Reif (2015) (<a href="www.dx.doi.org/10.1534/genetics.115.177907">DOI: 10.1534/genetics.115.177907</a>) showed that a Gaussian kerenel matrix can be decomposed into <span class="math inline">\(GK = \Lambda \tilde{H} \Lambda\)</span>, where <span class="math inline">\(\Lambda = diag[\exp (- \theta \sum^m_{k=1} x^2_{1k} ) , \cdots, \exp (- \theta\sum^m_{k=1} x^2_{nk})]\)</span>, <span class="math inline">\(\tilde{H} = 1_{n \times n} + \sum^{\infty}_{k=1} \frac{(2 \theta m)^k}{k!} G^{\#k}\)</span>, and <span class="math inline">\(G\)</span> is the second genomic relationship matrix of VanRaden (2008). Confirm that this is indeed true. Use the bandwidth parameter <span class="math inline">\(\theta = 0.0001\)</span>.</p>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<p>Create two Gaussin kernel matrices (<code>GK1</code> and <code>GK2</code>) where means of lower triangler matrix are about 0.85 and 0.25, respectively.</p>
+</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
+<p>Evaluate predictive performance of the reproducing kernel Hilbert spaces regression model by repeating three-fold cross-validation 5 times. Fit a multiple kernel method by using <code>GK1</code> and <code>GK2</code> simultaneously. Type <code>set.seed(0403)</code> at the begining of the code so that your analysis is reporducible. Compare the results with the ones obtained from the Bayesian ridge regression and Bayesian LASSO in HW6.</p>
+</div>
+</div>
+
+
+</div>
+
+<div id="postamble" data-toggle="wy-nav-shift" class="status">
+<p class="author"><span class="glyphicon glyphicon-user"></span> Gota Morota</p>
+<p class="date"><span class="glyphicon glyphicon-calendar"></span> April 18, 2017</p>
+</div>
+
+
+<script>
+$(document).ready(function () {
+ 	  });
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
